@@ -1,189 +1,269 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Life Expectancy in relation to HDI & GDP</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <style>
-                body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-                body, html {
-                  height: 100%;
-                  color: #777;
-                  line-height: 1.8;
-                }
-                
-                /* Create a Parallax Effect */
-                .bgimg-1, .bgimg-2, .navbarbg {
-                  background-attachment: fixed;
-                  background-position: center;
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                }
-                
-                /* First image (Logo. Full height) */
-                .bgimg-1 {
-                  background-image: url("./img/background.jpg");
-                  min-height: 100%;
-                }
-                
-                /* Second image (Portfolio) */
-                .bgimg-2 {
-                  background-image: url("./img/background2.jpg");
-                  min-height: 400px;
-                }
 
-                .navbarbg{
-                    background-color: white;
-                }
-                
+<head>
+    <title>Life Expectancy in relation to HDI & GDP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                
-                .w3-wide {letter-spacing: 10px;}
-                .w3-hover-opacity {cursor: pointer;}
-                
-                /* Turn off parallax scrolling for tablets and phones */
-                @media only screen and (max-device-width: 1600px) {
-                  .bgimg-1, .bgimg-2, .bgimg-3 {
-                    background-attachment: scroll;
-                    min-height: 400px;
-                  }
-                }
-        </style>
-        <!-- Load d3.js -->
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-    
-    </head>
-    <body>
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif;
+        }
 
-<!-- NAVIGATION BAR -->
-        <div class="w3-top navbarbg">
-            <div class="w3-bar" id="myNavbar">
-                    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-                        <i class="fa fa-bars"></i>
-                    </a>
+        body,
+        html {
+            height: 100%;
+            color: #777;
+            line-height: 1.8;
+        }
 
-                    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-                    <a href="#info" class="w3-bar-item w3-button">Project Info</a>
-                    <a href="#data" class="w3-bar-item w3-button">Data</a>
-                    <a href="#viz" class="w3-bar-item w3-button">Visualization</a>
-                    <a href="#design" class="w3-bar-item w3-button">Design Choices</a>
-                    <a href="#ref" class="w3-bar-item w3-button">References</a>
-                    <a href="#team" class="w3-bar-item w3-button">Team</a>
+        /* Create a Parallax Effect */
+        .bgimg-1,
+        .bgimg-2,
+        .navbarbg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-            </div>
+        /* First image (Logo. Full height) */
+        .bgimg-1 {
+            background-image: url("./img/background.jpg");
+            min-height: 100%;
+        }
+
+        /* Second image (Portfolio) */
+        .bgimg-2 {
+            background-image: url("./img/background2.jpg");
+            min-height: 400px;
+        }
+
+        .navbarbg {
+            background-color: white;
+        }
+
+
+
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1600px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3 {
+                background-attachment: scroll;
+                min-height: 400px;
+            }
+        }
+    </style>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="w3-top navbarbg">
+        <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <a href="#home" class="w3-bar-item w3-button">HOME</a>
+            <a href="#info" class="w3-bar-item w3-button">Project Info</a>
+            <a href="#data" class="w3-bar-item w3-button">Data</a>
+            <a href="#viz" class="w3-bar-item w3-button">Visualization</a>
+            <a href="#design" class="w3-bar-item w3-button">Design Choices</a>
+            <a href="#ref" class="w3-bar-item w3-button">References</a>
+            <a href="#team" class="w3-bar-item w3-button">Team</a>
+
         </div>
+    </div>
 
-<!-- FIRST BG IMAGE / HOME SCREEN -->
-        <div class="bgimg-1 w3-display-containeer w3-opacity-min" id="home">
-            <div class="w3-display-middle" style="white-space:nowrap;">
-                    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">&DAVI& <span class="w3-hide-small">&DAVI&</span> &DAVI&</span>
-            </div>
+    <!-- FIRST BG IMAGE / HOME SCREEN -->
+    <div class="bgimg-1 w3-display-containeer w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Life Expectancy<span
+                    class="w3-hide-small"> in relation to</span>GDP and HDI</span>
         </div>
+    </div>
 
-<!-- SECTION PROJECT INFO   -->
-        <div class="w3-content w3-container w3-padding-64" id="info">
-            <h3 class="w4-center">Project Info</h3>
-            <p>Project Info <br />
-                Der Rest von Text über das Projekt
+    <!-- SECTION PROJECT INFO   -->
+    <div class="w3-content w3-container w3-padding-64" id="info">
+        <h3 class="w4-center">Project Info</h3>
+        <p>Fragen <br />
+            Wie hat sich die Lebenserwartung, HDI und GDP pro Land und weltweit verändert?<br />
+            Wie korrelieren Lebenserwartung und HDI und GDP miteinander?<br />
+            <br />
+            Willkommen zum Projekt “Visualisierung der Entwicklung: HDI vs. GDP”. In diesem spannenden Projekt
+            vergleichen und visualisieren wir die Beziehung zwischen dem Human Development Index (HDI) und dem
+            Bruttoinlandsprodukt (GDP) über mehrere Jahre hinweg. Unser Ziel ist es, durch hochwertige und intuitive
+            Grafiken ein besseres Verständnis der Wechselwirkungen zwischen wirtschaftlicher Leistung und menschlicher
+            Entwicklung zu ermöglichen. Wir analysieren Daten aus verschiedenen Ländern und Zeitperioden, um Trends und
+            Muster zu erkennen. Unsere Visualisierungen sollen nicht nur informativ, sondern auch ästhetisch ansprechend
+            sein, um ein breites Publikum zu erreichen und einen tiefgreifenden Einblick in diese wichtigen
+            sozioökonomischen Indikatoren zu bieten.
+        </p>
+    </div>
+
+    <!-- SECOND BG IMAGE WITH Data TEXT -->
+
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">DATA</span>
+        </div>
+    </div>
+
+
+    <!-- SECTION DATA   -->
+    <div class="w3-content w3-container w3-padding-64" id="data">
+        <h3 class="w3-center">Data</h3>
+        <p>Data<br />
+            Die Daten wurden von <a href="https://www.gapminder.org/data/" target="_blank">Gapminder</a> bezogen. Die
+            Daten wurden von Gapminder aufbereitet und sind frei verfügbar.
+            Gapminder ist eine Stiftung, die darauf abzielt, das Verständnis der
+            Welt durch Statistiken und Daten zu verbessern. Dieses Dataset enthält umfangreiche Daten zu über 180 Ländern
+            seit dem Jahr 1800, einschließlich Faktoren wie Lebenserwartung, Human Development Index (HDI),
+            CO2-Verbrauch, Bruttoinlandsprodukt (GDP), und dem Anteil des Dienstleistungssektors und noch einigen Indikatoren mehr. Es ermöglicht einen
+            tiefgehenden Einblick in die Entwicklung dieser Indikatoren über die Jahre hinweg. Die Daten sind nach Land,
+            Kontinent und Jahr strukturiert, was eine gründliche Analyse und Visualisierung ermöglicht.
+            Folgende Indikatoren wurden bezogen:
+            - Life Expectancy
+            - GDP per Capita (US Dollar inflation-adjusted)
+            - Population
+            - HDI
+            Für Life Expectancy, GDP und Bevölkerung sind für die Meisten Länder Daten ab 1800 vorhanden. Für HDI sind
+            die Daten erst ab 1990 vorhanden.
+            Die Daten wurden mit einem Python Script und Pandas aufbereitet. Die Daten wurden in ein CSV File
+            geschrieben und können <a href="data/gapminder/merged_dataset.csv">hier</a> heruntergeladen werden.
+        </p>
+    </div>
+
+    <!-- SECTION VISUALIZATION -->
+
+    <div class="w3-content w3-container w3-padding-64" id="viz">
+        <h3 class="w3-center">Visualization</h3>
+        <p>
+        <h4 class="w3-center">Bubble Chart</h4><br />
+        <div id="scrubber-container"></div>
+        <div id="bubble_chart">
+        </div>
+        <h4 class="w3-center">World Map</h4><br />
+        <div id="world_chart">
             </p>
         </div>
-
-<!-- SECOND BG IMAGE WITH Data TEXT -->
-
-        <div class="bgimg-2 w3-display-container w3-opacity-min">
-             <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">DATA</span>
-            </div>
-        </div>
-
-
-<!-- SECTION DATA   -->
-        <div class="w3-content w3-container w3-padding-64" id="data">
-            <h3 class="w3-center">Data</h3>
-            <p>Data<br/>
-                Text woher die Daten kommen nach Aufgabenstellung
-            </p>
-        </div>
-
-<!-- SECTION VISUALIZATION -->
-
-        <div class="w3-content w3-container w3-padding-64" id="viz">
-            <h3 class="w3-center">Visualization</h3>
-            <p>&DAVI& Untertitel<br/>
-                &DAVI& Hierhin kommt der komplette D3 Code (kann natürlich auch mit externen script gemacht werden, aber hier hat er auch Platz)
-                Beispiel: <br/>
-                <div id="bubble_chart">
-                </div>
-                <div id="worldmap">
-                    <script src="js/worldmap.js"></script>
-                </div>
-                <svg id="my_dataviz" width="400" height="300"></svg>
-                <script>
-
-                        // The svg
-                        var svg = d3.select("svg"),
-                            width = +svg.attr("width"),
-                            height = +svg.attr("height");
-                        
-                        // Map and projection
-                        //var projection = d3.geoNaturalEarth()
-                        //    .scale(width / 1.3 / Math.PI)
-                        //    .translate([width / 2, height / 2])
-                        
-                        // Load external data and boot
-                        //d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson", function(data){
-                        
-                            // Draw the map
-                        //    svg.append("g")
-                        //        .selectAll("path")
-                        //        .data(data.features)
-                        //        .enter().append("path")
-                        //            .attr("fill", "#69b3a2")
-                        //            .attr("d", d3.geoPath()
-                        //                .projection(projection)
-                        //            )
-                        //            .style("stroke", "#fff")
-                        //})
-                        
-                        </script>
-            
-            </p>
-        </div>     
-<!-- SECTION DESIGN -->
+        <!-- SECTION DESIGN -->
 
         <div class="w3-content w3-container w3-padding-64" id="design">
             <h3 class="w3-center">Desing</h3>
-            <p>&DAVI& Untertitel<br/>
-                &DAVI& Hier die Info wieso weshalb warum man was hingebogen hat im D3
+            <p>Untertitel<br />
+                Als Haupt Steuerungselement wurde ein Scrubber gewählt. Dieser Scrubber ermöglicht es dem Benutzer die
+                Zeitachse zu verändern
+                und somit die Entwicklung der Länder über die Zeit zu beobachten. Die Länder werden als Bubble Chart
+                dargestellt. Die Grösse der Bubbles
+                beschreibt die Bevölkerungszahl des jeweiligen Landes. Bleibt man mit der Maus über einer Bubble stehen
+                wird in einem Tooltip die das Land und die Region ausgewiesen.<br />
+                Zusätzliche Slicer Elemente für die Aggregierung oder Filterung der Daten müssen noch hinzugefügt
+                werden.
+                Zudem soll die Weltkarte das gleiche Jahr des Scrubbers anzeigen und jeweils ebenfalls upgedated werden
+                und gleichzeitig als Filter für das Bubblechart
+                dienen. Die Farbskala-Legende der Weltkarte soll entlang der y-Achse des Bubblecharts zur besseren
+                Nachvollziehbarkeit angezeigt werden.
+                Optional ist noch ein Connected Scatterplot für den Pfad eines einzelnen Landes über die Zeit angedacht
+                plus allenfalls ein laufender Zeitstrahl mit
+                den wichtigsten Ereignissen der Weltgeschichte.
             </p>
-        </div>  
-<!-- SECTION DESIGN -->
+        </div>
+        <!-- SECTION DESIGN -->
 
         <div class="w3-content w3-container w3-padding-64" id="ref">
             <h3 class="w3-center">References</h3>
-            <p>&DAVI& Untertitel<br/>
-                &DAVI& Wo hast du was geklaut?, die Website hier ist von W3.org, einfach in einer viel weniger fancy-version
-                https://data.worldbank.org/indicator/SP.POP.TOTL?end=2022&start=1960
-                https://www.kaggle.com/datasets/albertovidalrod/gapminder-dataset
-                https://www.kaggle.com/datasets/sriharipramod/gap-minder-gdpgrowth
-                https://www.gapminder.org/data/
-            </p>
-        </div>  
-<!-- SECTION DESIGN -->
+            <ul class="w3-ul">
+                <li><a href="https://data.worldbank.org/indicator/SP.POP.TOTL?end=2022&start=1960" target="_blank">World
+                        Bank - Population Totals</a></li>
+                <li><a href="https://www.kaggle.com/datasets/albertovidalrod/gapminder-dataset" target="_blank">Kaggle -
+                        Gapminder Dataset by Alberto Vidal</a></li>
+                <li><a href="https://www.kaggle.com/datasets/sriharipramod/gap-minder-gdpgrowth" target="_blank">Kaggle
+                        - Gap Minder GDP Growth</a></li>
+                <li><a href="https://www.gapminder.org/data/" target="_blank">Gapminder - Data</a></li>
+                <li><a href="https://observablehq.com/@mbostock/the-wealth-health-of-nations" target="_blank">Observable
+                        - The Wealth & Health of Nations</a></li>
+                <li><a href="https://observablehq.com/@mbostock/scrubber" target="_blank">Observable - Scrubber</a></li>
+            </ul>
+        </div>
+
+        <style>
+            .w3-ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .w3-ul li {
+                padding: 8px 16px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .w3-ul li:last-child {
+                border-bottom: none;
+            }
+
+            .w3-ul li a {
+                text-decoration: none;
+                color: #0000EE;
+                /* Standard link color */
+                display: block;
+            }
+
+            .w3-ul li a:hover {
+                text-decoration: underline;
+            }
+        </style>
+        <!-- SECTION DESIGN -->
 
         <div class="w3-content w3-container w3-padding-64" id="Team">
-            <h3 class="w3-center">Team</h3>
-            <p>&DAVI& Untertitel<br/>
-                &DAVI& Kontaktdaten des Teams
-            </p>
-        </div>  
+            <h3 class="w3-center">OUR TEAM</h3>
+            <p class="w3-center">Group 08</p>
+            <div class="team-member" style="display:flex; justify-content:center;">
+                <div style="margin-right:20px; text-align:center;">
+                    <img src="img/usr_5501395.jpg" alt="Team Member 1"
+                        style="width:200px; height:200px; border-radius:50%;">
+                    <p>Austin George<br />
+                        <a href="mailto:austin.george@stud.hslu.ch">austin.george@hslu.ch</a>
+                    </p>
+                </div>
+                <div style="margin-left:20px; text-align:center;">
+                    <img src="img/usr_3342199.jpg" alt="Team Member 2"
+                        style="width:200px; height:200px; border-radius:50%;">
+                    <p>Marco Winkelmann<br />
+                        <a href="mailto:marcodavid.winkelmann@stud.hslu.ch">marcodavid.winkelmann@hslu.ch</a>
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <script src="js/script.js"></script>
 
-    </body>
+</body>
 
 </html>
