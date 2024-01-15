@@ -302,6 +302,9 @@ fetch('../data/gapminder/countries-50m.json')
                         .domain(data.map(d => d.continent))
                         .range(d3.schemeCategory10);
 
+                    const tooltip = d3.select("#tooltip");
+
+
                     const circle = bubble_svg.append("g")
                         .attr("stroke", "black")
                         .selectAll("circle")
@@ -313,7 +316,20 @@ fetch('../data/gapminder/countries-50m.json')
                         .attr("r", d => radius(d.population))
                         .attr("fill", d => colorScale(d.region))
                         .call(circle => circle.append("title")
-                            .text(d => [d.name, d.region].join("\n")));
+                            .text(d => [d.name, d.region].join("\n")))
+
+                        .on("mouseover", function(event, d) {
+                            tooltip.style("opacity", 1)
+                            .html(d.name)
+                            .style("left", (event.pageX) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                        })
+
+                        .on("mouseout", function() {
+                            tooltip.style("opacity", 0);
+                        })
+                        
+                        ;
 
                     return Object.assign(bubble_svg.node(), {
                         update(data) {

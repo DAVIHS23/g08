@@ -201,6 +201,8 @@
 
     <!-- SECTION VISUALIZATION -->
 
+    <div id="tooltip" style="position: absolute; opacity: 0; pointer-events: none; background-color: white; border: 1px solid black; padding: 5px; border-radius: 3px;"></div>
+
     <div class="w3-content w3-container w3-padding-64" id="viz">
         <h3 class="w3-center">Visualization</h3>
         <p>
@@ -212,27 +214,90 @@
         <div id="world_chart">
             </p>
         </div>
+
         <!-- SECTION DESIGN -->
 
         <div class="w3-content w3-container w3-padding-64" id="design">
             <h3 class="w3-center">Design</h3>
-            <p>Untertitel<br />
-                Als Haupt Steuerungselement wurde ein Scrubber gewählt. Dieser Scrubber ermöglicht es dem Benutzer die
-                Zeitachse zu verändern
-                und somit die Entwicklung der Länder über die Zeit zu beobachten. Die Länder werden als Bubble Chart
-                dargestellt. Die Grösse der Bubbles
-                beschreibt die Bevölkerungszahl des jeweiligen Landes. Bleibt man mit der Maus über einer Bubble stehen
-                wird in einem Tooltip die das Land und die Region ausgewiesen.<br />
-                Zusätzliche Slicer Elemente für die Aggregierung oder Filterung der Daten müssen noch hinzugefügt
-                werden.
-                Zudem soll die Weltkarte das gleiche Jahr des Scrubbers anzeigen und jeweils ebenfalls upgedated werden
-                und gleichzeitig als Filter für das Bubblechart
-                dienen. Die Farbskala-Legende der Weltkarte soll entlang der y-Achse des Bubblecharts zur besseren
-                Nachvollziehbarkeit angezeigt werden.
-                Optional ist noch ein Connected Scatterplot für den Pfad eines einzelnen Landes über die Zeit angedacht
-                plus allenfalls ein laufender Zeitstrahl mit
-                den wichtigsten Ereignissen der Weltgeschichte.
-            </p>
+            <h4>Foundations of Visual Design</h4>
+            
+            <h5>Bubble Chart</h5>
+                <p>
+                    Als Haupt Steuerungselement für die Grafiken wurde ein Scrubber gewählt. Die einzelnen Länder werden als Bubbles dargestellt. Die Grösse der Bubbles
+                    beschreibt die Bevölkerungszahl des jeweiligen Landes. Bleibt man mit der Maus über einer Bubble stehen
+                    wird in einem Tooltip das Land ausgewiesen.
+                    <br />
+                    Zusätzliche Slicer Elemente für die Aggregierung oder Filterung der Daten müssen noch hinzugefügt
+                    werden.
+                    Optional ist noch ein Connected Scatterplot für den Pfad eines einzelnen Landes über die Zeit angedacht
+                    plus allenfalls ein laufender Zeitstrahl mit
+                    den wichtigsten Ereignissen der Weltgeschichte.
+                </p>
+
+                <h5>Weltkarte</h5>
+                <p>
+                    Die Weltkarte wurde als Darstellung gewählt, da sie eine gute, globale Übersicht bietet.
+                    Der Scrubber ermöglicht es dem Benutzer die
+                    Zeitachse zu verändern
+                    und somit die Entwicklung der Länder über die Zeit zu beobachten. Mithilfe des "Play"-Buttons lässt sich die Veränderung über die Zeit hinaus beobachten.
+                    Die Weltkarte nutzt das gleiche Jahr des Scrubbers und sollte jeweils ebenfalls upgedated werden. Die Farbskala-Legende der Weltkarte wird entlang der y-Achse zur besseren
+                    Nachvollziehbarkeit angezeigt.
+
+                </p>
+
+            <h4>Fundamental Principals of Analytical Design</h4>
+            
+                <h5>Vergleichbarkeit</h5>
+                    <p>
+                        Die Bubble Chart bietet sowohl die Möglichkeit die Daten über die Zeit, wie auch über alle Länder hinweg zu vergleichen. Dadurch kann der User Informationen dazu gewinnen, wie stark sich die Lebenserwartung und der GDP in Relation zu anderen Ländern verändert hat. Die Weltkarte visualisiert die Verhältnisse, mithilfe der verschiedenen Blautöne welche auf einen Blick den Zustand eines Landes mit den umliegenden Ländern vergleichbar macht.
+                    </p>
+
+                <h5>Kausalität</h5>
+
+                    <p>
+
+                        Die Kausalität wird in 2 Aspekten ersichtlich. Zum einen zeigt die Bubble Chart, wie Länder mit höherem GDP eine höhere Lebenserwartung haben. Ausserdem wird durch die Weltkarte ersichtlich, dass die geografische Lage eine Rolle spielt, z.B. haben Länder in Westeuropa eine deutlich höhere Lebenserwartung als Zentralafrika, wo das Wetter eher dürr ist und Konflikte herrschen.
+
+                    </p>
+
+                <h5>Multivariate Daten</h5>
+
+                    <p>
+
+                        Die Bubblechart kombiniert verschiedene Metriken und ermöglicht dem User pro Jahr einen Eindruck der Weltbevölkerung zu sehen. Beispielsweise lässt sich sagen, dass im Jahr 1800 alle drei Metriken HDI, GDP und Lebenserwartungen sehr tief waren und zwar Weltweit. Im Jahr 2005 ist das Gesamtbild aber ganz anders und es wird klar, dass die gesamte Welt reicher, älter und besser entwickelt ist. 
+
+                    </p>
+
+                <h5>Integration von Beweisen</h5>
+
+                    <p>
+
+                        Die Bubbles beweisen die positive Entwicklung der Welt über die Zeit hinweg und es ist sofort klar wie viel sich die Welt in den letzten 200 Jahren verändert hat.
+
+                    </p>
+
+                <h5>Dokumentation</h5>
+
+                    <p>
+                        Die Charts haben jeweils eine Legende und zeigen bei dem Überfahren mit der Maus zusätzliche Informationen zum Land auf.
+
+                    </p>
+
+                <h5>Inhaltszentriertes Design</h5>
+
+                    <p>
+                        Das Design wurde minimalistisch gehalten und es werden nur relevante Informationen auf kompakte Weise angezeigt. Damit die Charts nicht überfüllt werden mit Text, wurde entschieden, die Informationen zu den Ländern nur beim Überfahren mit der Maus zu zeigen. Damit wird das Information Seeking Prinzip eingehalten.
+
+                    </p>
+
+            <h4>Data-Ink Ratio</h4>
+            
+                <p>
+                    Die Bubble Chart bietet sowohl die Möglichkeit die Daten über die Zeit, wie auch über alle Länder hinweg zu vergleichen. Dadurch kann der User Informationen dazu gewinnen, wie stark sich die Lebenserwartung und der GDP in Relation zu anderen Ländern verändert hat. Die Weltkarte visualisiert die Verhältnisse, mithilfe der verschiedenen Blautöne welche auf einen Blick den Zustand eines Landes mit den umliegenden Ländern vergleichbar macht.
+                </p>
+
+
+
         </div>
         <!-- SECTION REFERENCES -->
 
