@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Life Expectancy in relation to HDI & GDP</title>
+    <title>Population Change in relation to life expectancy and GDP</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -107,8 +107,8 @@
     <!-- FIRST BG IMAGE / HOME SCREEN -->
     <div class="bgimg-1 w3-display-containeer w3-opacity-min" id="home">
         <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Life Expectancy<span
-                    class="w3-hide-small"> in relation to</span>GDP and HDI</span>
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Population Change<span
+                    class="w3-hide-small"> in relation to</span>GDP and life expectancy</span>
         </div>
     </div>
 
@@ -118,13 +118,13 @@
         <p><h4>Fragen</h4> 
 
             <ul>
-              <li>Wie hat sich die Lebenserwartung, HDI und GDP pro Land und weltweit verändert?</li>
-              <li>Wie korrelieren Lebenserwartung und HDI und GDP miteinander?</li>
+              <li>Wie hat sich die Lebenserwartung, Bevölkerung und GDP pro Land und weltweit verändert?</li>
+              <li>Wie korrelieren Lebenserwartung und Bevölkerunganzahl und GDP miteinander?</li>
             </ul>
 
             <br />
-            Willkommen zum Projekt “Visualisierung der Entwicklung: HDI vs. GDP”. In diesem spannenden Projekt
-            vergleichen und visualisieren wir die Beziehung zwischen dem Human Development Index (HDI) und dem
+            Willkommen zum Projekt “Visualisierung der Bevölkerungsentwicklung in Relation mit Lebenserwartung und GDP”. In diesem spannenden Projekt
+            vergleichen und visualisieren wir die Beziehung zwischen der Lebenserwartung und dem
             Bruttoinlandsprodukt (GDP) über mehrere Jahre hinweg. Unser Ziel ist es, durch hochwertige und intuitive
             Grafiken ein besseres Verständnis der Wechselwirkungen zwischen wirtschaftlicher Leistung und menschlicher
             Entwicklung zu ermöglichen. Wir analysieren Daten aus verschiedenen Ländern und Zeitperioden, um Trends und
@@ -180,7 +180,7 @@
             Daten wurden von Gapminder aufbereitet und sind frei verfügbar.
             Gapminder ist eine Stiftung, die darauf abzielt, das Verständnis der
             Welt durch Statistiken und Daten zu verbessern. Dieses Dataset enthält umfangreiche Daten zu über 180 Ländern
-            seit dem Jahr 1800, einschließlich Faktoren wie Lebenserwartung, Human Development Index (HDI),
+            seit dem Jahr 1800, einschliesslich Faktoren wie Lebenserwartung, Human Development Index (HDI),
             CO2-Verbrauch, Bruttoinlandsprodukt (GDP), und dem Anteil des Dienstleistungssektors und noch einigen Indikatoren mehr. Es ermöglicht einen
             tiefgehenden Einblick in die Entwicklung dieser Indikatoren über die Jahre hinweg. Die Daten sind nach Land,
             Kontinent und Jahr strukturiert, was eine gründliche Analyse und Visualisierung ermöglicht.
@@ -264,7 +264,7 @@
 
                     <p>
 
-                        Die Bubblechart kombiniert verschiedene Metriken und ermöglicht dem User pro Jahr einen Eindruck der Weltbevölkerung zu sehen. Beispielsweise lässt sich sagen, dass im Jahr 1800 alle drei Metriken HDI, GDP und Lebenserwartungen sehr tief waren und zwar Weltweit. Im Jahr 2005 ist das Gesamtbild aber ganz anders und es wird klar, dass die gesamte Welt reicher, älter und besser entwickelt ist. 
+                        Die Bubblechart kombiniert verschiedene Metriken und ermöglicht dem User pro Jahr einen Eindruck der Weltbevölkerung zu sehen. Beispielsweise lässt sich sagen, dass im Jahr 1800 alle drei Metriken, GDP, Bevölkerungsanzal und Lebenserwartungen sehr tief waren und zwar Weltweit. Im Jahr 2005 ist das Gesamtbild aber ganz anders und es wird klar, dass die gesamte Welt reicher, älter und mehr bevölkert ist. 
 
                     </p>
 
@@ -293,9 +293,37 @@
             <h4>Data-Ink Ratio</h4>
             
                 <p>
-                    Die Bubble Chart bietet sowohl die Möglichkeit die Daten über die Zeit, wie auch über alle Länder hinweg zu vergleichen. Dadurch kann der User Informationen dazu gewinnen, wie stark sich die Lebenserwartung und der GDP in Relation zu anderen Ländern verändert hat. Die Weltkarte visualisiert die Verhältnisse, mithilfe der verschiedenen Blautöne welche auf einen Blick den Zustand eines Landes mit den umliegenden Ländern vergleichbar macht.
+                     Die Bubble Chart als auch die Weltkarte sind so gestaltet worden, dass jede Farbe und jedes Element einen klaren Zweck hat und zur Kommunikation von Informationen beiträgt. Im Bubble Chart wird beispielsweise durch den Verzicht von unnötigen grafischen Elementen und Dekorationen der Fokus auf die wesentlichen Informationen gelegt. Die Grösse der Bubbles ergibt die Bevölkerungsanzahl und die Positionierung ergibt die Lebenserwartung und den GDP - man hat also 3 Informationen auf einen Schlag. Zusätzliche Informationen werden erst bei Interaktion mit der Maus eingeblendet, wodurch eine Überladung der Darstellung vermieden wird und die Data-Ink-Ratio optimiert wird. Ähnlich wird bei der Weltkarte verfahren. Die Farbskala und die geografischen Konturen dienen als primäre Informationsträger. 
                 </p>
 
+            <h4>Human Perception</h4>
+            <p>
+
+            Für die Visuelle Hierarchie des Bubble Charts impliziert z.B. die Grösse der Bubbles eine Art Prioritäten und reflektiert für uns auf eine intuitive Art die Grösse eines Landes.
+
+            Mithilfe der Gestaltprinzipien wurden ähnliche Informationen zusammengenommen und folgen intuitiven Design Prinzipien. Farben spielen eine wichtige Rolle bei der Darstellung von Daten, weil sie Unterschiede am einfachsten und klarsten darstellen. Bei der Weltkarte ist es beispielsweise wichtig, Farben so zu wählen, dass sie gut unterscheidbar sind und eine Vergleichbarkeit bieten.
+
+            </p>
+
+            <h4>Tasks in Data Visualization</h4>
+            <p>
+
+            <ul>
+
+                <li>Data and View Specification: Die Daten wurden im Vorfeld analysiert, präpariert und mithilfe von Excel wurden Test-Grafiken erstellt um zu sehen welche Grafiken sich für die Webseite am Besten eignen. </li>
+                <li>View Manipulation: Man kann mithilfe vom Hovern mehr Information anzeigen und mithilfe des Scrubbers kann man entscheiden welches Jahr angezeigt werden soll. Ausserdem lässt der Play-Button die Historie automatisch durchlaufen.</li>
+                <li>View Derivation: Man kann verschiedene Jahre wählen um verschiedene Views zu generieren und erhält jeweils eine Bubble Chart und eine Weltkarte.</li>
+
+            </ul>
+
+            </p>
+
+            <h4>Interaction Concept</h4>
+            <p>
+
+            Der User erhält mithilfe der Bubble Chart eine gute historische Übersicht, die man dann im Detail in der Weltkarte ansehen kann. Mit dem Scrubber kann gefiltert werden, welches Jahr man ansehen möchte. Wenn man auf ein Land in der Bubble Chart klickt, wird das Land in der Weltkarte hervorgehoben.
+
+            </p>
 
 
         </div>

@@ -288,6 +288,8 @@ fetch('../data/gapminder/countries-50m.json')
                     .attr("viewBox", [0, 0, width, height])
                     .attr("style", "max-width: 100%; height: auto;");
 
+
+
                 const bubble_chart = (() => {
                     bubble_svg.append("g")
                         .call(xAxis);
@@ -320,15 +322,15 @@ fetch('../data/gapminder/countries-50m.json')
 
                         .on("mouseover", function(event, d) {
                             tooltip.style("opacity", 1)
-                            .html(d.name)
+                            .html(`${d.name},  Lebenserwartung: ${parseInt(d.lifeExpectancy)}, GDP: ${parseInt(d.income)}`)
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
                         })
 
-                        .on("mouseout", function() {
-                            tooltip.style("opacity", 0);
+                        .on("click", function(event, d) {
+                            highlightCountryOnMap(d.name);
                         })
-                        
+                                                
                         ;
 
                     return Object.assign(bubble_svg.node(), {
@@ -342,6 +344,9 @@ fetch('../data/gapminder/countries-50m.json')
                     });
 
                 })();
+
+                
+
 
                 const world_chart = (() => {
 
@@ -357,6 +362,8 @@ fetch('../data/gapminder/countries-50m.json')
                     console.log(dataAt(formattedData, 1800).map(d => [d.name, d.lifeExpectancy]));
                     const color = d3.scaleSequential(d3.extent(valuemap.values()), d3.interpolateYlGnBu);
 
+
+                    
                     // Append the legend.
                     world_svg.append("g")
                         .attr("transform", "translate(330,0)")
@@ -401,6 +408,13 @@ fetch('../data/gapminder/countries-50m.json')
                         return Object.assign(world_svg.node(), { update: updateWorldChart });
 
                 })();
+
+                function highlightCountryOnMap(country) {
+                        console.log(country)
+                        d3.selectAll("path")
+                        .data(countries.features)
+                            .style("opacity", d => d.properties.name === country ? 1 : 0.5);
+                }
 
                 function Scrubber(values, {
                     format = value => value,
