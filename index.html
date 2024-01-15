@@ -49,11 +49,14 @@
             min-height: 400px;
         }
 
+        /* Second image (Portfolio) */
+        .inline-img {
+            max-width: 100%;
+        }
+
         .navbarbg {
             background-color: white;
         }
-
-
 
         .w3-wide {
             letter-spacing: 10px;
@@ -112,9 +115,13 @@
     <!-- SECTION PROJECT INFO   -->
     <div class="w3-content w3-container w3-padding-64" id="info">
         <h3 class="w4-center">Project Info</h3>
-        <p>Fragen <br />
-            Wie hat sich die Lebenserwartung, HDI und GDP pro Land und weltweit verändert?<br />
-            Wie korrelieren Lebenserwartung und HDI und GDP miteinander?<br />
+        <p><h4>Fragen</h4> 
+
+            <ul>
+              <li>Wie hat sich die Lebenserwartung, HDI und GDP pro Land und weltweit verändert?</li>
+              <li>Wie korrelieren Lebenserwartung und HDI und GDP miteinander?</li>
+            </ul>
+
             <br />
             Willkommen zum Projekt “Visualisierung der Entwicklung: HDI vs. GDP”. In diesem spannenden Projekt
             vergleichen und visualisieren wir die Beziehung zwischen dem Human Development Index (HDI) und dem
@@ -124,6 +131,35 @@
             Muster zu erkennen. Unsere Visualisierungen sollen nicht nur informativ, sondern auch ästhetisch ansprechend
             sein, um ein breites Publikum zu erreichen und einen tiefgreifenden Einblick in diese wichtigen
             sozioökonomischen Indikatoren zu bieten.
+        </p>
+    </div>
+
+    <!-- SECTION SKETCH   -->
+    <div class="w3-content w3-container w3-padding-64" id="data">
+        <h3 class="w3-center">Sketch</h3>
+        <p>Folgende Bilder zeigen unsere erste Version für das User Interface:<br />
+            
+            <h5>Weltkarte</h5>
+
+            <img class="inline-img" src="img/sketch.jpg">
+            <br>
+            <br>
+            <br>
+            <h5>Bubble Chart</h5>
+            <img class="inline-img" src="img/sketch2.jpg">
+
+            Das erste Bild zeigt eine Weltkarte, mit den verschiedenen Ländern in unterschiedlichen Blautönen. Die Weltkarte repräsentiert die Lebenserwartung pro Land: je dunkler 
+            das Blau, desto höher ist die Lebenserwartung.
+<br />
+            Auf der rechten Seite gibt es verschiedene Parameter die man einstellen kann. Mit einem Schieberegler kann man den Zeitraum auswählen. Mit der darunterliegenden Auswahl kann man sich für eine der drei Metriken, Lebenserwartung, Human Development Index (HDI), das Bruttoinlandsprodukt (GDP), entscheiden. 
+<br />
+            Darunter kann man diese Metriken mit einer anderen Vergleichen, um Unterschiede und Entwicklungen zu erkennen. Diese Auswahl ändert die Anzeige von einer Weltkarte zu einer Bubble Chart.
+<br />
+            Als Letztes kann man die Aggregationsfunktion auswählen, damit man für den gewählten Zeitraum einstellen kann, wie die Daten pro Land zusammengerechnet werden.
+<br />
+            Bei der Umsetzung haben wir schnell bemerkt, dass diese Variante im Rahmen einer Semesterarbeit - besonders mit den Tücken von JavaScript - schwierig ist, funktionsfähig hinzubekommen und wir haben uns darauf geeinigt, die Grundfunktion der Weltkarte und ein Bubble Chart bereitzustellen.
+<br />
+            
         </p>
     </div>
 
@@ -148,17 +184,20 @@
             CO2-Verbrauch, Bruttoinlandsprodukt (GDP), und dem Anteil des Dienstleistungssektors und noch einigen Indikatoren mehr. Es ermöglicht einen
             tiefgehenden Einblick in die Entwicklung dieser Indikatoren über die Jahre hinweg. Die Daten sind nach Land,
             Kontinent und Jahr strukturiert, was eine gründliche Analyse und Visualisierung ermöglicht.
-            Folgende Indikatoren wurden bezogen:
-            - Life Expectancy
-            - GDP per Capita (US Dollar inflation-adjusted)
-            - Population
-            - HDI
+            <br>Folgende Indikatoren wurden bezogen:
+            <ul>
+            <li>- Life Expectancy</li>
+            <li>- GDP per Capita (US Dollar inflation-adjusted)</li>
+            <li>- Population</li>
+            <li>- HDI</li>
+            </ul>
             Für Life Expectancy, GDP und Bevölkerung sind für die Meisten Länder Daten ab 1800 vorhanden. Für HDI sind
             die Daten erst ab 1990 vorhanden.
             Die Daten wurden mit einem Python Script und Pandas aufbereitet. Die Daten wurden in ein CSV File
             geschrieben und können <a href="data/gapminder/merged_dataset.csv">hier</a> heruntergeladen werden.
         </p>
     </div>
+
 
     <!-- SECTION VISUALIZATION -->
 
@@ -176,7 +215,7 @@
         <!-- SECTION DESIGN -->
 
         <div class="w3-content w3-container w3-padding-64" id="design">
-            <h3 class="w3-center">Desing</h3>
+            <h3 class="w3-center">Design</h3>
             <p>Untertitel<br />
                 Als Haupt Steuerungselement wurde ein Scrubber gewählt. Dieser Scrubber ermöglicht es dem Benutzer die
                 Zeitachse zu verändern
@@ -195,7 +234,7 @@
                 den wichtigsten Ereignissen der Weltgeschichte.
             </p>
         </div>
-        <!-- SECTION DESIGN -->
+        <!-- SECTION REFERENCES -->
 
         <div class="w3-content w3-container w3-padding-64" id="ref">
             <h3 class="w3-center">References</h3>
@@ -239,7 +278,7 @@
                 text-decoration: underline;
             }
         </style>
-        <!-- SECTION DESIGN -->
+        <!-- SECTION TEAM -->
 
         <div class="w3-content w3-container w3-padding-64" id="Team">
             <h3 class="w3-center">OUR TEAM</h3>
