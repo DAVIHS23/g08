@@ -259,10 +259,10 @@ function parseSeries(series) {
     return series.map(([year, value]) => [new Date(Date.UTC(year, 0, 1)), value]);
 }
 
-fetch('../g08/data/gapminder/countries-50m.json')
+fetch('../data/gapminder/countries-50m.json')
     .then(response => response.json())
     .then(world => {
-        fetch('../g08/data/gapminder/nations.json')
+        fetch('../data/gapminder/nations.json')
             .then(response => response.json())
             .then(data => {
                 // Convert data to the format expected by your scrubber
